@@ -14,21 +14,28 @@ with open(cslFile, 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 document = []
-
 existing = {}
-ix = 0
-for rec in data:
-    if 'issued' in rec.keys():
-        name =  rec['title'].lower().split(' ')
-        name = [n for n in name if len(n)>3]
-        j = 0
-        rec['id'] = f"{rec['author'][0]['family'].lower()}_{name[0]}_{rec['issued']['date-parts'][0][0]}_{chr(97+j)}"
-        while rec['id'] in existing:
-            j += 1
-            rec['id'] = f"{rec['author'][0]['family'].lower()}_{name[0]}_{rec['issued']['date-parts'][0][0]}_{chr(97+j)}"
-        existing[rec['id']] = ix
-        document.append(rec)
-        ix += 1
+
+sorted = []
+for ix,rec in enumerate(data):
+    name = rec['author'][0]['family'].lower()
+    kw = [n for n in rec['title'].lower().split(' ') if len(n)>3]
+    kw1 = kw[0]
+    kw2 = kw[1]
+    year = rec['issued']['date-parts'][0][0]
+    id = f"{rec['author'][0]['family'].lower()}_{kw1}_{kw2}_{year}"
+    sorted.append([name,year,kw1,kw2,id,ix])
+sorted.sort()
+for ox in sorted:
+    ix = ox[-1]
+    rec = data[ix]
+    j = 0
+    id = f"{ox[-2]}_{chr(97+j)}"
+    while id in existing:
+        j += 1
+        id = f"{ox[-2]}_{chr(97+j)}"
+    existing[id] = ix
+    document.append(rec)
 
 with open(outputName, 'w', encoding='utf-8') as f:
     json.dump(document, f, indent=4, ensure_ascii=False)
