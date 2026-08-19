@@ -1,0 +1,48 @@
+[
+    {
+        "id": "skeeter_controls_2022_a",
+        "type": "article-journal",
+        "abstract": "Growing season surface–atmosphere exchange of carbon dioxide and methane were quantified at Fish Island, a wetland site in the lower northeast Mackenzie River Delta, Northwest Territories, Canada. The terrain consists of low-center polygonal tundra and is subject to infrequent flooding in high water years. Carbon dioxide and methane fluxes were continuously measured using eddy covariance and the relevance of different environmental controls were identified using neural networks. Net daily carbon dioxide uptake peaked in mid-July before gradually decreasing and transitioning to net daily emissions by September. Variations in light level and temperature were the main controls over diurnal net carbon dioxide uptake, whereas thaw depth and phenology were the main seasonal controls. Methane emissions measured at Fish Island were higher than comparable studies on river delta sites in the Arctic and were influenced by the interaction of a large number of factors including thaw and water table depth, soil temperatures, and net radiation. Spikes in methane emissions were associated with strong winds and turbulence. The Fish Island tundra was a net sink for carbon during the growing season and methane emissions only slightly reduced the overall sink strength.",
+        "container-title": "Arctic Science",
+        "DOI": "10.1139/as-2021-0034",
+        "issue": "2",
+        "license": "All rights reserved",
+        "note": "publisher: NRC Research Press",
+        "page": "471-497",
+        "source": "cdnsciencepub.com (Atypon)",
+        "title": "Controls on carbon dioxide and methane fluxes from a low-center polygonal peatland in the Mackenzie River Delta, Northwest Territories",
+        "URL": "https://cdnsciencepub.com/doi/full/10.1139/as-2021-0034",
+        "volume": "8",
+        "author": [
+            {
+                "family": "Skeeter",
+                "given": "June"
+            },
+            {
+                "family": "Christen",
+                "given": "Andreas"
+            },
+            {
+                "family": "Henry",
+                "given": "Greg H.R."
+            }
+        ],
+        "accessed": {
+            "date-parts": [
+                [
+                    "2022",
+                    10,
+                    31
+                ]
+            ]
+        },
+        "issued": {
+            "date-parts": [
+                [
+                    "2022",
+                    6
+                ]
+            ]
+        }
+    }
+]
