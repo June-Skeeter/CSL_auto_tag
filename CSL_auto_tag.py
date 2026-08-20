@@ -5,6 +5,8 @@ CLI=argparse.ArgumentParser()
 
 Me = {'family':'Skeeter','given':'June'}
 
+exclude = ['and','the','one']
+
 class cslTags():
     def __init__(self,cslFile):
         outputName = cslFile.split('.json')[0]+'_autofmt.json'
@@ -18,7 +20,7 @@ class cslTags():
         sorted = []
         for ix,rec in enumerate(data):
             name = rec['author'][0]['family'].lower()
-            kw = [n for n in rec['title'].lower().split(' ') if len(n)>3]
+            kw = ["".join(c for c in n if c.isalnum()) for n in rec['title'].lower().split(' ') if len(n)>=3 and n not in exclude]
             kw1 = kw[0]
             kw2 = kw[1]
             year = rec['issued']['date-parts'][0][0]
