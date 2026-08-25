@@ -19,12 +19,19 @@ class cslTags():
 
         sorted = []
         for ix,rec in enumerate(data):
-            name = rec['author'][0]['family'].lower()
+            if 'author' not in rec:
+                print('No Authors: ',rec)
+                breakpoint()
+            else:
+                name = rec['author'][0]['family'].lower().replace(' ','_')
             kw = ["".join(c for c in n if c.isalnum()) for n in rec['title'].lower().split(' ') if len(n)>=3 and n not in exclude]
             kw1 = kw[0]
             kw2 = kw[1]
-            year = rec['issued']['date-parts'][0][0]
-            id = f"{rec['author'][0]['family'].lower()}_{kw1}_{kw2}_{year}"
+            if 'issued' not in rec:
+                year = rec['accessed']['date-parts'][0][0]
+            else:
+                year = rec['issued']['date-parts'][0][0]
+            id = f"{name}_{kw1}_{kw2}_{year}"
             sorted.append([name,year,kw1,kw2,id,ix])
         sorted.sort()
         for ox in sorted:
