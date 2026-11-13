@@ -23,7 +23,11 @@ class cslTags():
                 print('No Authors: ',rec)
                 breakpoint()
             else:
-                name = rec['author'][0]['family'].lower().replace(' ','_').split('(')[0].rstrip('_')
+                if 'family' in rec['author'][0]:
+                    name = rec['author'][0]['family']
+                else:
+                    name = rec['author'][0]['literal']
+                name = name.lower().replace(' ','_').split('(')[0].replace("’",'_').rstrip('_')
             kw = ["".join(c for c in n if c.isalnum()) for n in rec['title'].lower().split(' ') if len(n)>=3 and n not in exclude]
             kw1 = kw[0]
             kw2 = kw[1]
