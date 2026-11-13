@@ -19,9 +19,11 @@ class cslTags():
 
         sorted = []
         for ix,rec in enumerate(data):
+            if 'accessed' in rec and rec['type'] == 'article-journal':
+                rec.pop('accessed')
             if 'author' not in rec:
                 print('No Authors: ',rec)
-                breakpoint()
+                exit()
             else:
                 if 'family' in rec['author'][0]:
                     name = rec['author'][0]['family']
